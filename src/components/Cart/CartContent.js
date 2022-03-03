@@ -33,8 +33,8 @@ function CartContent() {
   return (
     <div className="col-md-10 py-5 my-5">
       <div className="table-responsive">
-        <table class="table">
-          <thead class="thead-inverse">
+        <table className="table">
+          <thead className="thead-inverse">
             <tr>
               <th>Image</th>
               <th>Title</th>

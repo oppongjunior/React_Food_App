@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { loadCartFunc, loadFavFunc } from "./Redux/Actions";
 import Favorite from "./Pages/Favorite";
+import ProtectedRoute from "./Pages/ProtectedRoute";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,12 +26,40 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/product/:id"
+            element={
+              <ProtectedRoute>
+                <ProductInfo />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <ProtectedRoute>
+                <Cart />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/favorites"
+            element={
+              <ProtectedRoute>
+                <Favorite />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/product/:id" element={<ProductInfo />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/favorites" element={<Favorite />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>

@@ -16,15 +16,3 @@
     position: absolute;
     top:50%;
 }
-.spinner-border{
-    height: 100px;
-    width: 100px;
-}
-.form-shadow{
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
-.login-register{
-    position: relative;
-    background-color: aliceblue;
-    min-height: 100vh;
-}

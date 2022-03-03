@@ -28,10 +28,6 @@ const clearCart = (payload) => ({
   type: ActionTypes.CLEAR_CART,
   payload: payload,
 });
-const clearFav = (payload) => ({
-  type: ActionTypes.CLEAR_FAV,
-  payload: payload,
-});
 const increaseCart = (payload) => ({
   type: ActionTypes.INCREASE_CART,
   payload: payload,
@@ -114,6 +110,6 @@ export const decreaseCartFunc = (data) => {
 export const clearCartFunc = (data) => {
   return (dispatch) => {
     localStorage.setItem("cart", JSON.stringify(data));
-    dispatch(decreaseCart(data));
+    dispatch(clearCart(data));
   };
 };

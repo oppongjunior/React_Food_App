@@ -1,21 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import fireDB from "../FireConfig";
-import { data } from "../data";
 import ProductItem from "../components/Product/ProductItem";
 
 function Home() {
   const [products, setProducts] = useState([]);
-  const addToStore = () => {
-    data.map(async (product) => {
-      try {
-        await addDoc(collection(fireDB, "products"), product);
-      } catch (e) {
-        console.error("Error adding document: ", e);
-      }
-    });
-  };
 
   const getData = async () => {
     try {
@@ -43,9 +33,9 @@ function Home() {
     return (
       <Layout>
         <div className="container py-5">
-          <div class="d-flex justify-content-center py-5">
-            <div class="spinner-border loader" role="status">
-              <span class="visually-hidden">Loading...</span>
+          <div className="d-flex justify-content-center py-5">
+            <div className="spinner-border loader" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
           </div>
         </div>

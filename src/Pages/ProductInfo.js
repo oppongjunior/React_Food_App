@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import { doc, getDoc } from "firebase/firestore";
 import fireDB from "../FireConfig";
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { BsHeart, BsCartPlus, BsHeartFill, BsCartXFill } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -63,9 +63,9 @@ function ProductInfo() {
     return (
       <Layout>
         <div className="container py-5">
-          <div class="d-flex justify-content-center py-5">
-            <div class="spinner-border loader" role="status">
-              <span class="visually-hidden">Loading...</span>
+          <div className="d-flex justify-content-center py-5">
+            <div className="spinner-border loader" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
           </div>
         </div>
