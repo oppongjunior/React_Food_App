@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { BsCart, BsBadgeWc } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
 import Logo from "../../assets/logo.jpg";
@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { showCartFunc } from "../../Redux/Actions";
 
 function TopNavbar() {
+  const [searchText, setSearchText] = useState("");
   const ProductState = useSelector((state) => state.ProductState);
   const dispatch = useDispatch();
   const showCart = () => {
