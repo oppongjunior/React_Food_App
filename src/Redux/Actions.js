@@ -1,4 +1,19 @@
 import { ActionTypes } from "./ActionTypes";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import fireDB from "../FireConfig";
+
+const loadFoodsStart = (payload) => ({
+  type: ActionTypes.LOAD_FOODS_START,
+  payload: payload,
+});
+const loadFoodsSuccess = (payload) => ({
+  type: ActionTypes.LOAD_FOODS_SUCCESS,
+  payload: payload,
+});
+const loadFoodsFailed = (payload) => ({
+  type: ActionTypes.LOAD_FOODS_FAILED,
+  payload: payload,
+});
 
 const loadCart = (payload) => ({
   type: ActionTypes.LOAD_CART,
@@ -36,13 +51,17 @@ const decreaseCart = (payload) => ({
   type: ActionTypes.DECREASE_CART,
   payload: payload,
 });
+const showCart = (payload) => ({
+  type: ActionTypes.SHOW_CART,
+  payload: payload,
+});
 
 //load cart Function
 export const loadCartFunc = () => {
   return (dispatch) => {
     let data = [];
-    if (localStorage.getItem("cart")) {
-      data = localStorage.getItem("cart");
+    if (localStorage.getItem("food_cart")) {
+      data = localStorage.getItem("food_cart");
       data = JSON.parse(data);
     }
     dispatch(loadCart(data));
@@ -50,11 +69,51 @@ export const loadCartFunc = () => {
 };
 
 //load fav function
+export const loadFoodsFunc = () => {
+  return async (dispatch) => {
+    dispatch(loadFoodsStart(true));
+    let data = [];
+    try {
+      const querySnapshot = await getDocs(collection(fireDB, "foods"));
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        data.push(doc.data());
+      });
+      dispatch(loadFoodsSuccess(data));
+    } catch (error) {
+      console.log(error);
+      dispatch(loadFoodsFailed(true));
+    }
+  };
+};
+
+//select category fuction
+export const selectCategoryFunc = (id) => {
+  return async (dispatch) => {
+    dispatch(loadFoodsStart(true));
+    let data = [];
+    try {
+      const querySnapshot = await getDocs(
+        query(collection(fireDB, "foods"), where("itemId", "==", id))
+      );
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        data.push(doc.data());
+      });
+      dispatch(loadFoodsSuccess(data));
+    } catch (error) {
+      console.log(error);
+      dispatch(loadFoodsFailed(true));
+    }
+  };
+};
+
+//load fav function
 export const loadFavFunc = () => {
   return (dispatch) => {
     let data = [];
-    if (localStorage.getItem("favorites")) {
-      data = localStorage.getItem("favorites");
+    if (localStorage.getItem("food_favorites")) {
+      data = localStorage.getItem("food_favorites");
       data = JSON.parse(data);
     }
     dispatch(loadfav(data));
@@ -64,7 +123,7 @@ export const loadFavFunc = () => {
 //addTo cart
 export const addToCartFunc = (data) => {
   return (dispatch) => {
-    localStorage.setItem("cart", JSON.stringify(data));
+    localStorage.setItem("food_cart", JSON.stringify(data));
     dispatch(addCart(data));
   };
 };
@@ -72,14 +131,14 @@ export const addToCartFunc = (data) => {
 //removeFrom cart
 export const removeFromCartFunc = (data) => {
   return (dispatch) => {
-    localStorage.setItem("cart", JSON.stringify(data));
+    localStorage.setItem("food_cart", JSON.stringify(data));
     dispatch(removeCart(data));
   };
 };
 //addTo cart
 export const addToFavFunc = (data) => {
   return (dispatch) => {
-    localStorage.setItem("favorites", JSON.stringify(data));
+    localStorage.setItem("food_favorites", JSON.stringify(data));
     dispatch(addFav(data));
   };
 };
@@ -87,14 +146,14 @@ export const addToFavFunc = (data) => {
 //removeFrom cart
 export const removeFromFavFunc = (data) => {
   return (dispatch) => {
-    localStorage.setItem("favorites", JSON.stringify(data));
+    localStorage.setItem("food_favorites", JSON.stringify(data));
     dispatch(removeFav(data));
   };
 };
 //removeFrom cart
 export const increaseCartFavFunc = (data) => {
   return (dispatch) => {
-    localStorage.setItem("cart", JSON.stringify(data));
+    localStorage.setItem("food_cart", JSON.stringify(data));
     dispatch(increaseCart(data));
   };
 };
@@ -102,14 +161,21 @@ export const increaseCartFavFunc = (data) => {
 //removeFrom cart
 export const decreaseCartFunc = (data) => {
   return (dispatch) => {
-    localStorage.setItem("cart", JSON.stringify(data));
+    localStorage.setItem("food_cart", JSON.stringify(data));
     dispatch(decreaseCart(data));
   };
 };
 //clear cart
 export const clearCartFunc = (data) => {
   return (dispatch) => {
-    localStorage.setItem("cart", JSON.stringify(data));
+    localStorage.setItem("food_cart", JSON.stringify(data));
     dispatch(clearCart(data));
+  };
+};
+
+//clear cart
+export const showCartFunc = (data) => {
+  return (dispatch) => {
+    dispatch(showCart(data));
   };
 };

@@ -1,58 +1,51 @@
-import React, { useState, useEffect } from "react";
-import Layout from "../components/Layout/Layout";
-import { collection, getDocs } from "firebase/firestore";
+import React from "react";
+import Banner from "../components/Banner/Banner";
+import Cart from "../components/Cart/Cart";
+import FoodList from "../components/Foods/FoodList";
+import MenuCategory from "../components/MenuCategory/MenuCategory";
+import BottomNavbar from "../components/Navbars/BottomNavbar";
+import TopNavbar from "../components/Navbars/TopNavbar";
+import { collection, addDoc, setDoc, doc } from "firebase/firestore";
 import fireDB from "../FireConfig";
-import ProductItem from "../components/Product/ProductItem";
+import { FoodData } from "../data";
+import { useSelector } from "react-redux";
+import Loading from "../components/Loading";
 
 function Home() {
-  const [products, setProducts] = useState([]);
-
-  const getData = async () => {
-    try {
-      const querySnapshot = await getDocs(collection(fireDB, "products"));
-      const newProducts = [];
-      querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        const newProduct = {
-          id: doc.id,
-          ...doc.data(),
-        };
-        newProducts.push(newProduct);
-      });
-      setProducts(newProducts);
-    } catch (e) {
-      console.log("Error occured during load : ", e);
-    }
+  const createData = async () => {
+    FoodData.map(async (item) => {
+      try {
+        await setDoc(doc(fireDB, "foods", `${item.id}`), item);
+      } catch (error) {
+        console.log(error);
+      }
+    });
   };
 
-  useEffect(() => {
-    getData();
-  }, []);
-
-  if (products.length === 0) {
-    return (
-      <Layout>
-        <div className="container py-5">
-          <div className="d-flex justify-content-center py-5">
-            <div className="spinner-border loader" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </div>
-          </div>
-        </div>
-      </Layout>
-    );
-  }
+  const ProductState = useSelector((state) => state.ProductState);
 
   return (
-    <Layout>
-      <div className="container">
-        <div className="row py-5">
-          {products.map((product) => {
-            return <ProductItem product={product} key={product.id} />;
-          })}
+    <>
+      <TopNavbar />
+      <div className="body">
+        <div className="main-content">
+          <div className="container">
+            <Banner />
+            <MenuCategory />
+
+            {ProductState.loadFoods ? (
+              <Loading />
+            ) : ProductState.foodsError ? (
+              <h1>Error</h1>
+            ) : (
+              <FoodList />
+            )}
+          </div>
         </div>
+        <Cart />
       </div>
-    </Layout>
+      <BottomNavbar />
+    </>
   );
 }
 

@@ -1,188 +1,699 @@
-export const data = [
+const MenuItems = [
   {
-    title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-    price: 109.95,
-    description:
-      "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-    category: "men's clothing",
-    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    rating: { rate: 3.9, count: 120 },
+    id: 1,
+    itemId: "buger01",
+    name: "Burger",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger3.png?alt=media&token=0ebe8311-6378-411b-9b6e-d7a6d2a106a2",
   },
   {
-    title: "Mens Casual Premium Slim Fit T-Shirts ",
-    price: 22.3,
-    description:
-      "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
-    category: "men's clothing",
-    image:
-      "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
-    rating: { rate: 4.1, count: 259 },
+    id: 2,
+    itemId: "pizza01",
+    name: "Pizza",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fpizzaslice.png?alt=media&token=c91c0c7e-ffa9-41be-ba84-c3b45c79d483",
   },
   {
-    title: "Mens Cotton Jacket",
-    price: 55.99,
-    description:
-      "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
-    category: "men's clothing",
-    image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
-    rating: { rate: 4.7, count: 500 },
+    id: 3,
+    itemId: "hotdog01",
+    name: "Hotdog",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fhdog1.png?alt=media&token=658e67d8-9284-4ba4-93ad-778dad99ce9c",
   },
   {
-    title: "Mens Casual Slim Fit",
-    price: 15.99,
-    description:
-      "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
-    category: "men's clothing",
-    image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
-    rating: { rate: 2.1, count: 430 },
+    id: 4,
+    itemId: "taco01",
+    name: "Taco",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Ftaco1.png?alt=media&token=b78c8e68-c1a6-4e43-8c43-6ef9f23aa59f",
   },
   {
-    title:
-      "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
-    price: 695,
-    description:
-      "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
-    category: "jewelery",
-    image: "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
-    rating: { rate: 4.6, count: 400 },
+    id: 5,
+    itemId: "snack01",
+    name: "Snack",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fsnack1.png?alt=media&token=d670617e-4bfc-4693-aa8c-211db9f9d706",
   },
   {
-    title: "Solid Gold Petite Micropave ",
-    price: 168,
-    description:
-      "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
-    category: "jewelery",
-    image: "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
-    rating: { rate: 3.9, count: 70 },
-  },
-  {
-    title: "White Gold Plated Princess",
-    price: 9.99,
-    description:
-      "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
-    category: "jewelery",
-    image: "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
-    rating: { rate: 3, count: 400 },
-  },
-  {
-    title: "Pierced Owl Rose Gold Plated Stainless Steel Double",
-    price: 10.99,
-    description:
-      "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
-    category: "jewelery",
-    image: "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
-    rating: { rate: 1.9, count: 100 },
-  },
-  {
-    title: "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
-    price: 64,
-    description:
-      "USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system",
-    category: "electronics",
-    image: "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg",
-    rating: { rate: 3.3, count: 203 },
-  },
-  {
-    title: "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
-    price: 109,
-    description:
-      "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
-    category: "electronics",
-    image: "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg",
-    rating: { rate: 2.9, count: 470 },
-  },
-  {
-    title:
-      "Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5",
-    price: 109,
-    description:
-      "3D NAND flash are applied to deliver high transfer speeds Remarkable transfer speeds that enable faster bootup and improved overall system performance. The advanced SLC Cache Technology allows performance boost and longer lifespan 7mm slim design suitable for Ultrabooks and Ultra-slim notebooks. Supports TRIM command, Garbage Collection technology, RAID, and ECC (Error Checking & Correction) to provide the optimized performance and enhanced reliability.",
-    category: "electronics",
-    image: "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg",
-    rating: { rate: 4.8, count: 319 },
-  },
-  {
-    title:
-      "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
-    price: 114,
-    description:
-      "Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty",
-    category: "electronics",
-    image: "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg",
-    rating: { rate: 4.8, count: 400 },
-  },
-  {
-    title: "Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin",
-    price: 599,
-    description:
-      "21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9. Color Supported - 16. 7 million colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. Horizontal viewing angle-178 degree. Vertical viewing angle-178 degree 75 hertz",
-    category: "electronics",
-    image: "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg",
-    rating: { rate: 2.9, count: 250 },
-  },
-  {
-    title:
-      "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ",
-    price: 999.99,
-    description:
-      "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag",
-    category: "electronics",
-    image: "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg",
-    rating: { rate: 2.2, count: 140 },
-  },
-  {
-    title: "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
-    price: 56.99,
-    description:
-      "Note:The Jackets is US standard size, Please choose size as your usual wear Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece. Detachable Functional Liner: Skin Friendly, Lightweigt and Warm.Stand Collar Liner jacket, keep you warm in cold weather. Zippered Pockets: 2 Zippered Hand Pockets, 2 Zippered Pockets on Chest (enough to keep cards or keys)and 1 Hidden Pocket Inside.Zippered Hand Pockets and Hidden Pocket keep your things secure. Humanized Design: Adjustable and Detachable Hood and Adjustable cuff to prevent the wind and water,for a comfortable fit. 3 in 1 Detachable Design provide more convenience, you can separate the coat and inner as needed, or wear it together. It is suitable for different season and help you adapt to different climates",
-    category: "women's clothing",
-    image: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
-    rating: { rate: 2.6, count: 235 },
-  },
-  {
-    title:
-      "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
-    price: 29.95,
-    description:
-      "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON",
-    category: "women's clothing",
-    image: "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg",
-    rating: { rate: 2.9, count: 340 },
-  },
-  {
-    title: "Rain Jacket Women Windbreaker Striped Climbing Raincoats",
-    price: 39.99,
-    description:
-      "Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.",
-    category: "women's clothing",
-    image: "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg",
-    rating: { rate: 3.8, count: 679 },
-  },
-  {
-    title: "MBJ Women's Solid Short Sleeve Boat Neck V ",
-    price: 9.85,
-    description:
-      "95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem",
-    category: "women's clothing",
-    image: "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg",
-    rating: { rate: 4.7, count: 130 },
-  },
-  {
-    title: "Opna Women's Short Sleeve Moisture",
-    price: 7.95,
-    description:
-      "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
-    category: "women's clothing",
-    image: "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
-    rating: { rate: 4.5, count: 146 },
-  },
-  {
-    title: "DANVOUY Womens T Shirt Casual Cotton Short",
-    price: 12.99,
-    description:
-      "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
-    category: "women's clothing",
-    image: "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
-    rating: { rate: 3.6, count: 145 },
+    id: 6,
+    itemId: "drink01",
+    name: "Drink",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fdrink1.png?alt=media&token=e9cc5e4e-2194-4766-9d5a-5e01657927b7",
   },
 ];
+
+const FoodData = [
+  {
+    id: 1,
+    itemId: "buger01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger1.png?alt=media&token=319dfbe9-462b-46ea-8f38-6ca7a20319e0",
+    name: "Burger Bistro",
+    ratings: 5,
+    price: "7.5",
+  },
+  {
+    id: 2,
+    itemId: "buger01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger2.png?alt=media&token=b256ed7a-fe35-4051-9bf5-24f39b79f2b2",
+    name: "Smokin' Burger",
+    ratings: 5,
+    price: "12",
+  },
+  {
+    id: 3,
+    itemId: "buger01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger3.png?alt=media&token=0ebe8311-6378-411b-9b6e-d7a6d2a106a2",
+    name: "Euphoria Burger",
+    ratings: 5,
+    price: "12",
+  },
+  {
+    id: 4,
+    itemId: "buger01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger4.png?alt=media&token=f219c72c-22b5-484a-9135-34bbb84e7faa",
+    name: "Sassy Burger",
+    ratings: 5,
+    price: "12",
+  },
+  {
+    id: 5,
+    itemId: "buger01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger5.png?alt=media&token=e8963c79-af46-4f33-a28d-059f98f464e3",
+    name: "Jazz Burger",
+    ratings: 5,
+    price: "12",
+  },
+  {
+    id: 6,
+    itemId: "buger01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger6.png?alt=media&token=f2b8febd-f0f8-48d7-9e1a-72d26b7bb36b",
+    name: "Healthy Buns",
+    ratings: 5,
+    price: "12",
+  },
+  {
+    id: 7,
+    itemId: "pizza01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fpizza1.png?alt=media&token=7ffbc681-5d86-4429-888b-9597f3e800e8",
+    name: "Margherita",
+    ratings: 5,
+    price: "12",
+  },
+  {
+    id: 8,
+    itemId: "pizza01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fpizza2.png?alt=media&token=e9b65d7f-bd12-4c33-b172-729f1dfcf461",
+    name: "Peppy Paneer",
+    ratings: 5,
+    price: "12",
+  },
+  {
+    id: 9,
+    itemId: "pizza01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fpizza3.png?alt=media&token=4dea85ad-c36d-405a-adcd-a9dfd0c63a6a",
+    name: "Double Cheese",
+    ratings: 5,
+    price: "12",
+  },
+  {
+    id: 10,
+    itemId: "pizza01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fpizza4.png?alt=media&token=1e5259ff-3431-4c76-830e-80e9d7dcc01e",
+    name: "Farm House",
+    ratings: 4,
+    price: "12",
+  },
+  {
+    id: 11,
+    itemId: "pizza01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fpizza5.png?alt=media&token=42bafbe4-f993-4aeb-93ee-57ea04b7cf1b",
+    name: "Veg Extrava",
+    ratings: 4,
+    price: "12",
+  },
+  {
+    id: 12,
+    itemId: "pizza01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fpizza6.png?alt=media&token=72a1e335-68d0-4b1c-8bbd-f28c656ce3b5",
+    name: "Deluxe Veggie",
+    ratings: 4,
+    price: "12",
+  },
+  {
+    id: 13,
+    itemId: "hotdog01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fhdog1.png?alt=media&token=658e67d8-9284-4ba4-93ad-778dad99ce9c",
+    name: "Hot Dog",
+    ratings: 4,
+    price: "12",
+  },
+  {
+    id: 14,
+    itemId: "hotdog01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fhdog2.png?alt=media&token=20c79a23-546f-48ef-a0fb-d6801e22273c",
+    name: "Hot Dog",
+    ratings: 4,
+    price: "12",
+  },
+  {
+    id: 15,
+    itemId: "hotdog01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fhdog3.png?alt=media&token=f0f0024f-0c1f-48ff-b589-b7f484ab5c96",
+    name: "Hot Dog",
+    ratings: 4,
+    price: "12",
+  },
+  {
+    id: 16,
+    itemId: "hotdog01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fhdog4.png?alt=media&token=0c0e6531-db79-42b8-94f9-78a6d618f20c",
+    name: "Hot Dog",
+    ratings: 4,
+    price: "12",
+  },
+  {
+    id: 17,
+    itemId: "hotdog01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fhdog5.png?alt=media&token=95f8330f-dc35-4029-b125-d9cf01e3e345",
+    name: "Hot Dog",
+    ratings: 4,
+    price: "12",
+  },
+  {
+    id: 18,
+    itemId: "hotdog01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fhdog6.png?alt=media&token=d371d7dd-c23e-465a-87ec-605c7ed3bc02",
+    name: "Hot Dog",
+    ratings: 3,
+    price: "12",
+  },
+  {
+    id: 19,
+    itemId: "taco01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Ftaco1.png?alt=media&token=b78c8e68-c1a6-4e43-8c43-6ef9f23aa59f",
+    name: "Taco",
+    ratings: 3,
+    price: "7.5",
+  },
+  {
+    id: 20,
+    itemId: "taco01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Ftaco2.png?alt=media&token=a6e8d72e-f288-48dc-9f26-8322774f5216",
+    name: "Taco",
+    ratings: 3,
+    price: "7.5",
+  },
+  {
+    id: 21,
+    itemId: "taco01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Ftaco3.png?alt=media&token=daa2cf5b-36b7-426a-9f2c-73ae70e62634",
+    name: "Taco",
+    ratings: 3,
+    price: "7.5",
+  },
+  {
+    id: 22,
+    itemId: "taco01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Ftaco4.png?alt=media&token=5d067124-870f-4ea8-afe1-5bd4f94ca20c",
+    name: "Taco",
+    ratings: 3,
+    price: "9",
+  },
+  {
+    id: 23,
+    itemId: "taco01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Ftaco5.png?alt=media&token=910f236f-2149-46cf-9b74-7d1ee0323c93",
+    name: "Taco",
+    ratings: 3,
+    price: "9",
+  },
+  {
+    id: 24,
+    itemId: "taco01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Ftaco6.png?alt=media&token=91214a30-cad0-434d-9339-3c658150ccab",
+    name: "Taco",
+    ratings: 3,
+    price: "9",
+  },
+  {
+    id: 25,
+    itemId: "snack01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fsnack1.png?alt=media&token=d670617e-4bfc-4693-aa8c-211db9f9d706",
+    name: "Snack",
+    ratings: 4,
+    price: "9",
+  },
+  {
+    id: 26,
+    itemId: "snack01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fsnack2.png?alt=media&token=55d7fc65-869b-4d8b-83b3-be0158474413",
+    name: "Snack",
+    ratings: 4,
+    price: "9",
+  },
+  {
+    id: 27,
+    itemId: "snack01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fsnack3.png?alt=media&token=76b488a6-be44-4a3e-a29e-c34ac17f2e2c",
+    name: "Snack",
+    ratings: 4,
+    price: "9",
+  },
+  {
+    id: 28,
+    itemId: "snack01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fsnack4.png?alt=media&token=1efcd8c0-098b-44a5-8113-da225e7358ce",
+    name: "Snack",
+    ratings: 4,
+    price: "9",
+  },
+  {
+    id: 29,
+    itemId: "snack01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fsnack5.png?alt=media&token=80cece50-38cd-489f-a73f-edd740fba4ab",
+    name: "Snack",
+    ratings: 4,
+    price: "9",
+  },
+  {
+    id: 30,
+    itemId: "snack01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fsnack6.png?alt=media&token=a36cb2c5-72d1-4364-9817-3a8eb8c244b6",
+    name: "Snack",
+    ratings: 4,
+    price: "9",
+  },
+  {
+    id: 31,
+    itemId: "drink01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fdrink1.png?alt=media&token=e9cc5e4e-2194-4766-9d5a-5e01657927b7",
+    name: "Soft Drinks",
+    ratings: 4,
+    price: "9",
+  },
+  {
+    id: 32,
+    itemId: "drink01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fdrink2.png?alt=media&token=872c5ddd-23ae-4f1e-b1dd-18d375240ba6",
+    name: "Soft Drinks",
+    ratings: 4,
+    price: "7.5",
+  },
+  {
+    id: 33,
+    itemId: "drink01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fdrink3.png?alt=media&token=c0efdccf-149a-4063-9658-00ae6c7c69dc",
+    name: "Soft Drinks",
+    ratings: 4,
+    price: "7.5",
+  },
+  {
+    id: 34,
+    itemId: "drink01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fdrink4.png?alt=media&token=eaaa8826-7fc0-499f-9eaf-8369ff99c112",
+    name: "Soft Drinks",
+    ratings: 4,
+    price: "7.5",
+  },
+  {
+    id: 35,
+    itemId: "drink01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fdrink5.png?alt=media&token=eecf1eee-73f5-4705-a7ce-9ccc363f4f47",
+    name: "Soft Drinks",
+    ratings: 4,
+    price: "7.5",
+  },
+  {
+    id: 36,
+    itemId: "drink01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fdrink6.png?alt=media&token=86c4ba2c-0db7-47f0-b8cf-fed24db6c1ae",
+    name: "Soft Drinks",
+    ratings: 4,
+    price: "7.5",
+  },
+
+  {
+    id: 41,
+    itemId: "buger01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger1.png?alt=media&token=319dfbe9-462b-46ea-8f38-6ca7a20319e0",
+    name: "Burger Bistro",
+    ratings: 5,
+    price: "7.5",
+  },
+  {
+    id: 42,
+    itemId: "buger01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger2.png?alt=media&token=b256ed7a-fe35-4051-9bf5-24f39b79f2b2",
+    name: "Smokin' Burger",
+    ratings: 5,
+    price: "12",
+  },
+  {
+    id: 43,
+    itemId: "buger01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger3.png?alt=media&token=0ebe8311-6378-411b-9b6e-d7a6d2a106a2",
+    name: "Euphoria Burger",
+    ratings: 5,
+    price: "12",
+  },
+  {
+    id: 44,
+    itemId: "buger01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger4.png?alt=media&token=f219c72c-22b5-484a-9135-34bbb84e7faa",
+    name: "Sassy Burger",
+    ratings: 5,
+    price: "12",
+  },
+  {
+    id: 45,
+    itemId: "buger01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger5.png?alt=media&token=e8963c79-af46-4f33-a28d-059f98f464e3",
+    name: "Jazz Burger",
+    ratings: 5,
+    price: "12",
+  },
+  {
+    id: 46,
+    itemId: "buger01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fburger6.png?alt=media&token=f2b8febd-f0f8-48d7-9e1a-72d26b7bb36b",
+    name: "Healthy Buns",
+    ratings: 5,
+    price: "12",
+  },
+  {
+    id: 47,
+    itemId: "pizza01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fpizza1.png?alt=media&token=7ffbc681-5d86-4429-888b-9597f3e800e8",
+    name: "Margherita",
+    ratings: 5,
+    price: "12",
+  },
+  {
+    id: 48,
+    itemId: "pizza01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fpizza2.png?alt=media&token=e9b65d7f-bd12-4c33-b172-729f1dfcf461",
+    name: "Peppy Paneer",
+    ratings: 5,
+    price: "12",
+  },
+  {
+    id: 49,
+    itemId: "pizza01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fpizza3.png?alt=media&token=4dea85ad-c36d-405a-adcd-a9dfd0c63a6a",
+    name: "Double Cheese",
+    ratings: 5,
+    price: "12",
+  },
+  {
+    id: 50,
+    itemId: "pizza01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fpizza4.png?alt=media&token=1e5259ff-3431-4c76-830e-80e9d7dcc01e",
+    name: "Farm House",
+    ratings: 4,
+    price: "12",
+  },
+  {
+    id: 51,
+    itemId: "pizza01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fpizza5.png?alt=media&token=42bafbe4-f993-4aeb-93ee-57ea04b7cf1b",
+    name: "Veg Extrava",
+    ratings: 4,
+    price: "12",
+  },
+  {
+    id: 52,
+    itemId: "pizza01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fpizza6.png?alt=media&token=72a1e335-68d0-4b1c-8bbd-f28c656ce3b5",
+    name: "Deluxe Veggie",
+    ratings: 4,
+    price: "12",
+  },
+  {
+    id: 53,
+    itemId: "hotdog01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fhdog1.png?alt=media&token=658e67d8-9284-4ba4-93ad-778dad99ce9c",
+    name: "Hot Dog",
+    ratings: 4,
+    price: "12",
+  },
+  {
+    id: 54,
+    itemId: "hotdog01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fhdog2.png?alt=media&token=20c79a23-546f-48ef-a0fb-d6801e22273c",
+    name: "Hot Dog",
+    ratings: 4,
+    price: "12",
+  },
+  {
+    id: 55,
+    itemId: "hotdog01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fhdog3.png?alt=media&token=f0f0024f-0c1f-48ff-b589-b7f484ab5c96",
+    name: "Hot Dog",
+    ratings: 4,
+    price: "12",
+  },
+  {
+    id: 56,
+    itemId: "hotdog01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fhdog4.png?alt=media&token=0c0e6531-db79-42b8-94f9-78a6d618f20c",
+    name: "Hot Dog",
+    ratings: 4,
+    price: "12",
+  },
+  {
+    id: 57,
+    itemId: "hotdog01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fhdog5.png?alt=media&token=95f8330f-dc35-4029-b125-d9cf01e3e345",
+    name: "Hot Dog",
+    ratings: 4,
+    price: "12",
+  },
+  {
+    id: 58,
+    itemId: "hotdog01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fhdog6.png?alt=media&token=d371d7dd-c23e-465a-87ec-605c7ed3bc02",
+    name: "Hot Dog",
+    ratings: 3,
+    price: "12",
+  },
+  {
+    id: 59,
+    itemId: "taco01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Ftaco1.png?alt=media&token=b78c8e68-c1a6-4e43-8c43-6ef9f23aa59f",
+    name: "Taco",
+    ratings: 3,
+    price: "7.5",
+  },
+  {
+    id: 60,
+    itemId: "taco01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Ftaco2.png?alt=media&token=a6e8d72e-f288-48dc-9f26-8322774f5216",
+    name: "Taco",
+    ratings: 3,
+    price: "7.5",
+  },
+  {
+    id: 61,
+    itemId: "taco01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Ftaco3.png?alt=media&token=daa2cf5b-36b7-426a-9f2c-73ae70e62634",
+    name: "Taco",
+    ratings: 3,
+    price: "7.5",
+  },
+  {
+    id: 62,
+    itemId: "taco01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Ftaco4.png?alt=media&token=5d067124-870f-4ea8-afe1-5bd4f94ca20c",
+    name: "Taco",
+    ratings: 3,
+    price: "9",
+  },
+  {
+    id: 63,
+    itemId: "taco01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Ftaco5.png?alt=media&token=910f236f-2149-46cf-9b74-7d1ee0323c93",
+    name: "Taco",
+    ratings: 3,
+    price: "9",
+  },
+  {
+    id: 64,
+    itemId: "taco01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Ftaco6.png?alt=media&token=91214a30-cad0-434d-9339-3c658150ccab",
+    name: "Taco",
+    ratings: 3,
+    price: "9",
+  },
+  {
+    id: 65,
+    itemId: "snack01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fsnack1.png?alt=media&token=d670617e-4bfc-4693-aa8c-211db9f9d706",
+    name: "Snack",
+    ratings: 4,
+    price: "9",
+  },
+  {
+    id: 66,
+    itemId: "snack01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fsnack2.png?alt=media&token=55d7fc65-869b-4d8b-83b3-be0158474413",
+    name: "Snack",
+    ratings: 4,
+    price: "9",
+  },
+  {
+    id: 67,
+    itemId: "snack01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fsnack3.png?alt=media&token=76b488a6-be44-4a3e-a29e-c34ac17f2e2c",
+    name: "Snack",
+    ratings: 4,
+    price: "9",
+  },
+  {
+    id: 68,
+    itemId: "snack01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fsnack4.png?alt=media&token=1efcd8c0-098b-44a5-8113-da225e7358ce",
+    name: "Snack",
+    ratings: 4,
+    price: "9",
+  },
+  {
+    id: 69,
+    itemId: "snack01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fsnack5.png?alt=media&token=80cece50-38cd-489f-a73f-edd740fba4ab",
+    name: "Snack",
+    ratings: 4,
+    price: "9",
+  },
+  {
+    id: 70,
+    itemId: "snack01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fsnack6.png?alt=media&token=a36cb2c5-72d1-4364-9817-3a8eb8c244b6",
+    name: "Snack",
+    ratings: 4,
+    price: "9",
+  },
+  {
+    id: 71,
+    itemId: "drink01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fdrink1.png?alt=media&token=e9cc5e4e-2194-4766-9d5a-5e01657927b7",
+    name: "Soft Drinks",
+    ratings: 4,
+    price: "9",
+  },
+  {
+    id: 72,
+    itemId: "drink01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fdrink2.png?alt=media&token=872c5ddd-23ae-4f1e-b1dd-18d375240ba6",
+    name: "Soft Drinks",
+    ratings: 4,
+    price: "7.5",
+  },
+  {
+    id: 73,
+    itemId: "drink01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fdrink3.png?alt=media&token=c0efdccf-149a-4063-9658-00ae6c7c69dc",
+    name: "Soft Drinks",
+    ratings: 4,
+    price: "7.5",
+  },
+  {
+    id: 74,
+    itemId: "drink01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fdrink4.png?alt=media&token=eaaa8826-7fc0-499f-9eaf-8369ff99c112",
+    name: "Soft Drinks",
+    ratings: 4,
+    price: "7.5",
+  },
+  {
+    id: 75,
+    itemId: "drink01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fdrink5.png?alt=media&token=eecf1eee-73f5-4705-a7ce-9ccc363f4f47",
+    name: "Soft Drinks",
+    ratings: 4,
+    price: "7.5",
+  },
+  {
+    id: 76,
+    itemId: "drink01",
+    imgSrc:
+      "https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fdrink6.png?alt=media&token=86c4ba2c-0db7-47f0-b8cf-fed24db6c1ae",
+    name: "Soft Drinks",
+    ratings: 4,
+    price: "7.5",
+  },
+];
+
+const reserved = [];
+export { MenuItems, FoodData };

@@ -1,11 +1,15 @@
 import React from "react";
-import { BsPlus, BsTrash } from "react-icons/bs";
-import { BiMinus } from "react-icons/bi";
+import Image from "../../assets/image_1.jpg";
+import {
+  BsFillPatchMinusFill,
+  BsFillPatchPlusFill,
+  BsTrash,
+} from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { increaseCartFavFunc, removeFromCartFunc } from "../../Redux/Actions";
 
-function CartItem({ data }) {
-  const { image, title, price, count, id } = data;
+function CartItem({ data = {} }) {
+  const { name = "Burger", price = "10", count = "1", imgSrc = "" } = data;
 
   const dispatch = useDispatch();
   const ProductState = useSelector((state) => state.ProductState);
@@ -17,7 +21,7 @@ function CartItem({ data }) {
       count: count + 1,
     };
     const newCart = ProductState.cart.map((item) => {
-      if (item.id === id) {
+      if (item.id === data.id) {
         return newCartItem;
       }
       return item;
@@ -34,7 +38,7 @@ function CartItem({ data }) {
         count: count - 1,
       };
       const newCart = ProductState.cart.map((item) => {
-        if (item.id === id) {
+        if (item.id === data.id) {
           return newCartItem;
         }
         return item;
@@ -47,31 +51,40 @@ function CartItem({ data }) {
   //remove Cart
   //removeCart
   const removeCart = () => {
-    let newCart = ProductState.cart.filter((item) => item.id !== id);
+    let newCart = ProductState.cart.filter((item) => item.id !== data.id);
     dispatch(removeFromCartFunc(newCart));
   };
 
   return (
     <tr>
-      <td>
-        <img src={image} alt="" className="img-fluid w-25" />
-      </td>
-      <td>{title}</td>
-      <td>${price}</td>
-      <td>${price * count}</td>
-      <td className="d-flex align-items-center">
-        <button className="btn btn-outline-dark" onClick={increaseCart}>
-          <BsPlus size={10} />
-        </button>
-        <span className="mx-2 h5 text-secondary">{count}</span>
-        <button className="btn btn-outline-dark" onClick={decreaseCart}>
-          <BiMinus size={10} />
-        </button>
+      <td scope="row">
+        <img src={imgSrc || Image} alt="" className="cart-item-image" />
       </td>
       <td>
-        <button className="btn btn-danger" onClick={removeCart}>
-          <BsTrash />
-        </button>
+        <div className="ms-2">
+          <h6 className="cart-item-name">{name}</h6>
+          <h6 className="cart-item-quantity">x{count}</h6>
+        </div>
+      </td>
+      <td>
+        <div className="d-flex">
+          <BsFillPatchMinusFill
+            size={24}
+            className="cart-item-icon"
+            onClick={decreaseCart}
+          />
+          <BsFillPatchPlusFill
+            size={24}
+            className="ms-2 cart-item-icon"
+            onClick={increaseCart}
+          />
+        </div>
+      </td>
+      <td>
+        <div className="cart-item-price h6">${price}</div>
+      </td>
+      <td>
+        <BsTrash color="red" onClick={removeCart} />
       </td>
     </tr>
   );
