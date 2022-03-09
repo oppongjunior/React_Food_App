@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearCartFunc, showCartFunc } from "../../Redux/Actions";
 import VisCardImage from "../../assets/visa_card.jpg";
 import CartItem from "./CartItem";
-import { BsCartXFill,BsPatchCheckFill } from "react-icons/bs";
+import { BsCartXFill, BsPatchCheckFill } from "react-icons/bs";
+import { IoReturnUpForwardOutline } from "react-icons/io5";
 
 function Cart() {
   const ProductState = useSelector((state) => state.ProductState);
@@ -31,6 +32,7 @@ function Cart() {
           ProductState.showCart ? "show-cart cart-box" : "cart-box"
         }`}
       >
+        <IoReturnUpForwardOutline size={30} className="close-cart" onClick={closeCart} />
         <div className="container h-100">
           <div className="px-3 h-25 text-center img-box">
             <img src={VisCardImage} alt="" className="h-100" />

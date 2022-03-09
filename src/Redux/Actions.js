@@ -108,6 +108,26 @@ export const selectCategoryFunc = (id) => {
   };
 };
 
+//search for food
+export const searchFoodFunc = (word) => {
+  return async (dispatch) => {
+    dispatch(loadFoodsStart(true));
+    let data = [];
+    try {
+      const querySnapshot = await getDocs(
+        query(collection(fireDB, "foods"), where("name","in", `%%word%%`))
+      );
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        data.push(doc.data());
+      });
+      dispatch(loadFoodsSuccess(data));
+    } catch (error) {
+      console.log(error);
+      dispatch(loadFoodsFailed(true));
+    }
+  };
+};
 //load fav function
 export const loadFavFunc = () => {
   return (dispatch) => {

@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React, { useEffect, useState } from "react";
 import { BsCart, BsBadgeWc } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
 import Logo from "../../assets/logo.jpg";
 import "./Navbar.css";
 import { useSelector, useDispatch } from "react-redux";
-import { showCartFunc } from "../../Redux/Actions";
+import { searchFoodFunc, showCartFunc } from "../../Redux/Actions";
 
 function TopNavbar() {
   const [searchText, setSearchText] = useState("");
@@ -13,6 +13,12 @@ function TopNavbar() {
   const showCart = () => {
     dispatch(showCartFunc(true));
   };
+
+  const handleChange = (e) => {
+    setSearchText(e.currentTarget.value);
+   console.log(searchText);
+  };
+
   return (
     <div className="top-navbar">
       <div className="container h-100">
@@ -22,14 +28,15 @@ function TopNavbar() {
             onSubmit={(e) => e.preventDefault()}
             className="top-navbar-form"
           >
-            <input
-              type="search"
-              className="form-control top-navbar-search"
-              name="name"
-              id="name"
-              placeholder="Search Food"
-              aria-label=""
-            />
+            <div class="search__container">
+              <input
+                class="search__input"
+                type="text"
+                placeholder="Search Foods"
+                value={searchText}
+                onChange={handleChange}
+              />
+            </div>
           </form>
           <span className="top-navbar-cart-icon ms-2">
             <BsCart size={24} />

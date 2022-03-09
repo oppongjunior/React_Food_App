@@ -12,6 +12,8 @@ import Login from "./Pages/Login";
 import { useEffect } from "react";
 import { loadCartFunc, loadFavFunc, loadFoodsFunc } from "./Redux/Actions";
 import { useDispatch } from "react-redux";
+import TopNavbar from "./components/Navbars/TopNavbar";
+import BottomNavbar from "./components/Navbars/BottomNavbar";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,10 +22,11 @@ function App() {
     dispatch(loadCartFunc());
     dispatch(loadFavFunc());
     dispatch(loadFoodsFunc());
-    
   }, []);
   return (
     <>
+      <TopNavbar />
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -34,6 +37,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<Error />} />
         </Routes>
+        <BottomNavbar />
       </BrowserRouter>
     </>
   );
